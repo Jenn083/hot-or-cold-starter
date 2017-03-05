@@ -31,6 +31,10 @@ function handleSubmit() {
   $('#js-guess-submit').click(function(event) {
     event.preventDefault();
     numGuess ++;
+    var inputVal = $('#js-user-guess').val();
+    if(inputVal == '' || isNaN(inputVal) || inputVal<0 || inputVal>100) {
+      alert('Please enter a number from 0-100');
+    }
     $('.js-guess-count').text(numGuess);
     var appendGuess = $('#js-user-guess').val();
     var theDifference = Math.abs(appendGuess-randomNumber);
